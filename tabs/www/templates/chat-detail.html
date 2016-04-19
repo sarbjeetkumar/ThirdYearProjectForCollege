@@ -4,14 +4,19 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{chat.Patient}}">
+<ion-view view-title="{{chat.Patient.patientName}}">
   <ion-content class="padding">
     <p>
-      {{chat.PatientId}}
+      {{chat.PatientId}}<br/>
       {{chat.doctorId}}<br/>
       {{chat.patientName}}  <br/>  
-      {{chat.doctorName}}<br/>
-
+      {{chat.doctorName}}<br/> 
+      {{chat.dapartment}}<br/>
+      {{chat.ppsNumber}}<br/>
+      {{chat.heartRate}}<br/>
+      {{chat.temprature}}  <br/>  
+      {{chat.durg}}<br/> 
+      {{chat.remarks}}<br/>
 
       </p>
   </ion-content>

@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $http) {
+.controller('DashCtrl', function($scope, $http, $state) {
     $scope.details = {};
     $scope.login = function() {
         $http({
@@ -9,6 +9,7 @@ angular.module('starter.controllers', [])
             params: {user: $scope.details.username, pass: $scope.details.password}
         }).success(function(data) {
             $scope.response = data;
+            $state.go('tab.chats');
         }).error (function(data) {
             $scope.response = "Failed";
         })
