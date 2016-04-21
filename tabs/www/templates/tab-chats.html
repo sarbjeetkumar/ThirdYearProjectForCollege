@@ -1,15 +1,16 @@
-<ion-view view-title="Chats">
+<ion-view view-title="Patients - Records" >
+ <ion-nav-bar class="bar-positive"/>
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.Patient}}">
-        <h2>{{chat.Patient.PatientID}}</h2>
-        <h2>{{chat.Patient.patientName}}</h2>
-         <h2>{{chat.Patient.doctorName}}</h2>
+          
+        <h3> Patient Id  - {{chat.Patient.PatientID}}</h3>
+        <h3>Patient Name - {{chat.Patient.patientName}}</h3>
+         <h3>Doctor Name - {{chat.Patient.doctorName}}</h3>
+          
         <i class="icon ion-chevron-right icon-accessory"></i>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
+     
       </ion-item>
     </ion-list>
   </ion-content>

@@ -1,23 +1,37 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $http, $state) {
+.controller('DashCtrl', function($scope, $http, $state, $rootScope) {
     $scope.details = {};
     $scope.login = function() {
-        $http({
+        if ($scope.details.username == undefined || $scope.details.password == undefined){
+            $scope.response = "Username and password are required";
+        }
+        else {
+            $http({
             method: 'GET',
             url: 'http://sarabsingh.cloudapp.net/login.php',
             params: {user: $scope.details.username, pass: $scope.details.password}
         }).success(function(data) {
-            $scope.response = data;
+            if (data == 'Username and a password is incorrect')
+                {
+                    $scope.response = "Username and password didnt match"
+                }
+            else {
+                $rootScope.patients = data;
+            console.log($rootScope.patients);
             $state.go('tab.chats');
+            }
+            
         }).error (function(data) {
             $scope.response = "Failed";
         })
+        }
+        
                    
     }
 })
 
-.controller('ChatsCtrl', function($scope, Chats, $http) {
+.controller('ChatsCtrl', function($scope, Chats, $http, $rootScope) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -32,7 +46,7 @@ angular.module('starter.controllers', [])
     Chats.remove(chat);
   };
     
-    $scope.patient = function() {
+    /*$scope.patient = function() {
         $http({
             method: 'GET',
             url: 'http://sarabsingh.cloudapp.net/Patients.php',
@@ -43,9 +57,12 @@ angular.module('starter.controllers', [])
             $scope.response = "Failed";
         });
                    
-    }
+    }*/
     
-    $scope.patient();
+    $scope.chats = $rootScope.patients;
+    Chats.set($rootScope.patients);
+    
+    //$scope.patient();
     
 })
 
