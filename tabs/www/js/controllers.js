@@ -17,8 +17,8 @@ angular.module('starter.controllers', [])
                     $scope.response = "Username and password didnt match"
                 }
             else {
+                delete $rootScope.patients;
                 $rootScope.patients = data;
-            console.log($rootScope.patients);
             $state.go('tab.chats');
             }
             
