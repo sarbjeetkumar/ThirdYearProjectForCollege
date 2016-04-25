@@ -23,7 +23,7 @@ angular.module('starter.controllers', [])
             }
             
         }).error (function(data) {
-            $scope.response = "Failed";
+            $scope.response = "Failed- Login Details Incorrect";
         })
         }
         
@@ -31,7 +31,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('ChatsCtrl', function($scope, Chats, $http, $rootScope) {
+.controller('ChatsCtrl', function($scope, Chats, $http, $rootScope, $state) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -62,12 +62,27 @@ angular.module('starter.controllers', [])
     $scope.chats = $rootScope.patients;
     Chats.set($rootScope.patients);
     
+    $scope.logout = function(){
+     $state.go('tab.dash');
+       
+      
+    }
+    
     //$scope.patient();
     
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
+    $scope.patientName = "";
+    
+    $scope.SaveRecords = function(){
+       // chat.PatientName = $scope.textPatient;
+       // $scope.chat.patientName =  $scope.patientName;
+        $scope.chat.patientName =  "New name";
+        //save
+        
+    }
 })
 
 

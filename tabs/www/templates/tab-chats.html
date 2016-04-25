@@ -1,6 +1,7 @@
 <ion-view view-title="Patients - Records" >
  <ion-nav-bar class="bar-positive"/>
   <ion-content>
+      <button class="button button-clear button-positive button-left" ng-click="logout()"  >Log Out</button>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.Patient}}">
           
@@ -8,7 +9,7 @@
         <h3>Patient Name - {{chat.Patient.patientName}}</h3>
          <h3>Doctor Name - {{chat.Patient.doctorName}}</h3>
           
-        <i class="icon ion-chevron-right icon-accessory"></i>
+        <i class="icon ion-chevron-right ion-person"></i>
 
      
       </ion-item>

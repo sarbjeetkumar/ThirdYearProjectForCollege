@@ -6,9 +6,12 @@
 -->
 <ion-view view-title="{{chat.Patient.patientName}}">
   <ion-content class="padding">
+      
+      
+    
+    
    
       <h4> Patient Id  - {{chat.PatientID}}</h4>
-      <h4>Patient Name - {{chat.doctorId}}</h4>
        <h4> Patient Id  - {{chat.patientName}}</h4>
       <h4>Patient Name - {{chat.doctorName}}</h4>
        <h4> Patient Id  - {{chat.department}}</h4>
@@ -17,8 +20,17 @@
        <h4> Patient Id  - {{chat.temprature}}</h4>
       <h4>Patient Name - {{chat.drug}}</h4>
       <h4>Patient Name - {{chat.remarks}}</h4>
-       
       
+    <input id="textPatient" name="textPatient" type="text" ng-model="patientName" >
       
+    <button id="btnSaveRecords" ng-click="SaveRecords()">Save Records</button>
+    
+          
+        
+
   </ion-content>
+         
 </ion-view>
+
+ 
+       
